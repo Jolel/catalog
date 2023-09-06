@@ -1,0 +1,23 @@
+require: 
+  - rubocop-factory_bot
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  Exclude:
+    - "app/channels/**/*"
+    - "app/mailers/**/*"
+    - "app/jobs/**/*"
+    - "bin/**/*"
+    - "config/**/*"
+    - "config.ru"
+    - "db/**/*"
+    - "Gemfile*"
+    - "public/**/*"
+    - "Rakefile"
+    - "spec/*_helper.rb"
+    - "tmp/**/*"
+  NewCops: enable
+  TargetRubyVersion: 3.1.4
+Style/Documentation:
+  Enabled: false
