@@ -1,7 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Biller do
-  subject(:biller) { described_class.new(name: 'Telcel Prepago', actions: 'pay', industries: 'cell') }
+  subject(:biller) do
+    described_class.new(
+      name: 'Telcel Prepago',
+      actions: 'pay',
+      industries: 'cell'
+    )
+  end
 
   it 'when biller is valid' do
     expect(biller).to be_valid
@@ -24,7 +30,7 @@ RSpec.describe Biller do
     end
 
     it 'industries are empty' do
-      biller.industries = nil
+      biller.industries = ''
       expect(biller).not_to be_valid
     end
 

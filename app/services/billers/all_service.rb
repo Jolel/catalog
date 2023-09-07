@@ -9,7 +9,7 @@ module Billers
     private
 
     def all_billers
-      BillerRepository.instance.all
+      BillerRepository.instance.includes(:configurations).all
     end
   end
 end

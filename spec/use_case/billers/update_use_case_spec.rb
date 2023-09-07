@@ -4,13 +4,16 @@ RSpec.describe Billers::UpdateUseCase do
   subject(:use_case) { described_class }
 
   let(:biller) { create(:biller) }
-  let(:params) { ActionController::Parameters.new(id: biller.id, name: 'Telcel', actions: 'consult', industries: 'cell') }
+  let(:params) do
+    ActionController::Parameters.new(id: biller.id, name: 'Telcel', actions: 'consult', industries: 'cell')
+  end
 
   describe '.call' do
-    it 'when biller is updated' do
-      response = use_case.call(**params.permit!.to_h)
-      expect(response.actions).to eq 'consult'
-      expect(response).not_to eq 'Params are invalid'
+    context 'when biller is updated' do
+      let(:response) { use_case.call(**params.permit!.to_h) }
+
+      it { expect(response.actions).to eq 'consult' }
+      it { expect(response).not_to eq 'Params are invalid' }
     end
 
     context 'when biller update' do

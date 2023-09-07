@@ -5,4 +5,6 @@ class Biller < ApplicationRecord
   validates :name, presence: true
   validates :actions, inclusion: Attributes::BillerConstants::ACTIONS, presence: true
   validates :industries, inclusion: Attributes::BillerConstants::INDUSTRIES, presence: true
+
+  has_many :configurations, dependent: :destroy
 end

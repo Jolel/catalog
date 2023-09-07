@@ -9,7 +9,7 @@ module Billers
     private
 
     def find_biller
-      BillerRepository.instance.find(@args[:id])
+      BillerRepository.instance.includes(:configurations).find(@args[:id])
     rescue ActiveRecord::RecordNotFound
       'Biller not found'
     end
