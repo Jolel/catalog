@@ -6,7 +6,7 @@ class ApplicationService
   end
 
   def self.call(**args)
-    new.(args).execute
+    new(args).execute
   end
 
   def execute
