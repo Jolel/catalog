@@ -14,12 +14,10 @@ RSpec.describe Configurations::UpdateUseCase do
 
   describe '.call' do
     context 'when configuration is updated' do
-      before do
-        @response = use_case.call(**params.permit!.to_h)
-      end
-      
-      it { expect(@response.consult_processor).to eq 'consult-processor2' }
-      it { expect(@response).not_to eq 'Params are invalid' }
+      let(:response) { use_case.call(**params.permit!.to_h) }
+
+      it { expect(response.consult_processor).to eq 'consult-processor2' }
+      it { expect(response).not_to eq 'Params are invalid' }
     end
 
     context 'when configuration update' do

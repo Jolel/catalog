@@ -4,8 +4,10 @@ RSpec.describe Configurations::CreateUseCase do
   subject(:use_case) { described_class }
 
   let(:params) do
-    ActionController::Parameters.new(payment_processor: 'pay-processor', consult_processor: 'consult-processor')
+    ActionController::Parameters.new(payment_processor: 'pay-processor', consult_processor: 'consult-processor', biller_id: biller.id)
   end
+
+  let(:biller) { create(:biller) }
 
   describe '.call' do
     it 'when configuration is valid' do

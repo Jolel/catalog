@@ -9,7 +9,7 @@ module Configurations
     private
 
     def all_configurations
-      ConfigurationRepository.instance.all
+      ConfigurationRepository.instance.includes(:biller).all
     end
   end
 end

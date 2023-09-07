@@ -4,9 +4,12 @@ RSpec.describe Configuration do
   subject(:configuration) do
     described_class.new(
       payment_processor: 'pay_processor',
-      consult_processor: 'consult_processor'
+      consult_processor: 'consult_processor',
+      biller_id: biller.id
     )
   end
+
+  let(:biller) { create(:biller) }
 
   it 'when configuration is valid' do
     expect(configuration).to be_valid

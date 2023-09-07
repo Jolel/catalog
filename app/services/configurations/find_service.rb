@@ -9,7 +9,7 @@ module Configurations
     private
 
     def find_configurations
-      ConfigurationRepository.instance.find(@args[:id])
+      ConfigurationRepository.instance.includes(:biller).find(@args[:id])
     rescue ActiveRecord::RecordNotFound
       'Configuration not found'
     end
