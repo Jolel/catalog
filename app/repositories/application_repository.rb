@@ -6,6 +6,7 @@ class ApplicationRepository
   delegate :all, to: :@db_table
   delegate :find, to: :@db_table
   delegate :includes, to: :@db_table
+  delegate :new, to: :@db_table
   delegate :where, to: :@db_table
 
   def initialize
